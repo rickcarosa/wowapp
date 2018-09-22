@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
-import './Home.css'
+import './Home.css';
+import logo from '../pictures/logo.png';
 
 class Home extends Component {
     constructor(){
@@ -12,7 +13,7 @@ class Home extends Component {
     render(){
         return(
             <div ClassName='Home'>
-                Some text
+                <img className='logo' src={logo} alt="logo"/>
             </div>
         )
     }
