@@ -94,13 +94,13 @@ class Home extends Component {
                                     ?
                                     <div className='itemList'>
                                         <h1 className='itemHeading'> My Item Sets </h1>
-                                        <p className='tagTwo'> Helm <span className='listItem'> {this.state.items.items.head.name} </span> <span className='level'> {this.state.items.items.head.itemLevel} </span> </p> 
-                                        <p className='tagTwo'> Chest <span className='listItem'> {this.state.items.items.chest.name} </span> <span className='level'> {this.state.items.items.chest.itemLevel} </span> </p> 
-                                        <p className='tagTwo'> Shoulders <span className='listItem'> {this.state.items.items.shoulder.name} </span> <span className='level'> {this.state.items.items.shoulder.itemLevel} </span> </p> 
-                                        <p className='tagTwo'> Legs <span className='listItem'> {this.state.items.items.legs.name} </span> <span className='level'> {this.state.items.items.legs.itemLevel} </span> </p> 
-                                        <p className='tagTwo'> Feet <span className='listItem'> {this.state.items.items.feet.name} </span> <span className='level'> {this.state.items.items.feet.itemLevel} </span> </p> 
-                                        <p className='tagTwo'> Trinket <span className='listItem'> {this.state.items.items.trinket1.name} </span> <span className='level'> {this.state.items.items.trinket1.itemLevel} </span> </p> 
-                                        <p className='tagTwo'> Back <span className='listItem'> {this.state.items.items.back.name} </span> <span className='level'> {this.state.items.items.back.itemLevel} </span> </p> 
+                                        <p className='tagTwo'> Helm <span className='level'> <p className='listItem'> {this.state.items.items.head.name} </p> </span> {this.state.items.items.head.itemLevel} </p>                                    
+                                        <p className='tagTwo'> Chest <span className='level'> <p classname='listItem'> {this.state.items.items.chest.name} </p> </span> {this.state.items.items.chest.itemLevel} </p>                                    
+                                        <p className='tagTwo'> Shoulders <span className='level'> <p classname='listItem'> {this.state.items.items.shoulder.name} </p> </span> {this.state.items.items.shoulder.itemLevel} </p>
+                                        <p className='tagTwo'> Legs <span className='level'> <p classname='listItem'> {this.state.items.items.legs.name} </p> </span> {this.state.items.items.legs.itemLevel} </p>                                
+                                        <p className='tagTwo'> Feet <span className='level'> <p classname='listItem'> {this.state.items.items.feet.name} </p> </span> {this.state.items.items.feet.itemLevel} </p>                               
+                                        <p className='tagTwo'> Trinket <span className='level'> <p classname='listItem'> {this.state.items.items.trinket1.name} </p> </span> {this.state.items.items.trinket1.itemLevel} </p>
+                                        <p className='tagTwo'> Back <span className='level'> <p classname='listItem'> {this.state.items.items.back.name} </p> </span> {this.state.items.items.back.itemLevel} </p>                            
                                     </div>
                                     :
                                     null

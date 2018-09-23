@@ -124,9 +124,14 @@ span:nth-child(4){
 }
 
 .tagTwo{
+    display: flex;
+    justify-content: space-between;
+}
 
+.listItem {
+    
 }
 
 .level{
-    
+
 }
