@@ -69,11 +69,25 @@ img{
     margin: 7px;
     border: 1px solid rgba(147, 147, 150, 0.3);
     border-radius: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .hexagon {
-    
-}   
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+}  
+
+.x {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -2.2rem;
+}
 
 .info {
     width: 100%;

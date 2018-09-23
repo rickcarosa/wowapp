@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import './Home.css';
 import logo from '../pictures/logo.png';
 import axios from 'axios';
+import {Hexagon, Close} from '../pictures/close.js'
 
 class Home extends Component {
     constructor(){
@@ -12,7 +13,8 @@ class Home extends Component {
             charInput: '',
             realmInput: '',
             stats: {},
-            items: {}
+            items: {},
+            dataDiv: false
         }
 
         this.addCharacter = this.addCharacter.bind(this);
@@ -52,6 +54,12 @@ class Home extends Component {
         })
     }
 
+    closeDiv(){
+        this.setState({
+            dataDiv: !this.state.dataDiv
+        })
+    }
+
     render(){
         //style for avatar
         let style = {
@@ -73,17 +81,21 @@ class Home extends Component {
                 <div className='data'>
                     <input className='character' placeholder='Character Name' type="text" onChange = {(event) => this.addCharacter(event.target.value)}/>
                     <input className='realm' placeholder='Realm Name' type="text" onChange = {(event) => this.addRealm(event.target.value)}/>
-                    <button className='search' onClick={() => {this.getStats(); this.getItems()}}> Search </button>
+                    <button className='search' onClick={() => {this.getStats(); this.getItems(); this.closeDiv()}}> Search </button>
                 </div>
 
                 {/* data for player div */}
+                {/* infoBox will be displayed if dataDiv is true when search bar is clicked and close by clicking the x */}
+                { this.state.dataDiv 
+                &&
                 <div className='infoBox'>
 
-                    {/* div and svgs for closing the info container */}
+                    {/* div and svgs for closing the info container, on click closes the data section*/}
                     <div className='closeBox'>
-                        <div className='hexagon'>
+                        <div className='hexagon' onClick={() => this.closeDiv()}>
+                            <Hexagon/>
                                 <div className='x'>
-
+                                    <Close/>
                                 </div>
                         </div>
                     </div>
@@ -168,6 +180,7 @@ class Home extends Component {
                         </div>
                     </div>
                 </div>
+                }
             </section>
         )
     }
