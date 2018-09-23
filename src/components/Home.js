@@ -107,16 +107,22 @@ class Home extends Component {
                                 {
                                     this.state.stats.stats 
                                     ?
-                                    <div className='attributes'>
-                                        <h1 className='heading'> Attributes </h1>
-                                        <p className='tag'> Level <span> {this.state.stats.level} </span> </p>
-                                        <p className='tag'> Health <span> {this.state.stats.stats.health} </span> </p>
-                                        <p className='tag'> Strength <span> {this.state.stats.stats.str} </span> </p>
-                                        <p className='tag'> Agility <span style={{color: 'turquoise'}}> {this.state.stats.stats.agi} </span> </p>
-                                        <p className='tag'> Intillect <span> {this.state.stats.stats.int} </span> </p>
-                                        <p className='tag'> Stamina <span style={{color: 'turquoise'}}> {this.state.stats.stats.sta} </span> </p>
-                                        <h1 className='heading'> Enhancements </h1>
-                                            <p className='tag'> Haste <span> {this.state.stats.stats.haste.toFixed(2)}% </span> </p> 
+                                    <div className='dataContainer'>
+                                        <div className='attributes'>
+                                            <h1 className='heading'> Attributes </h1>
+                                            <p className='tag'> Level <span> {this.state.stats.level} </span> </p>
+                                            <p className='tag'> Health <span> {this.state.stats.stats.health} </span> </p>
+                                            <p className='tag'> Strength <span> {this.state.stats.stats.str} </span> </p>
+                                            <p className='tag'> Agility <span style={{color: 'turquoise'}}> {this.state.stats.stats.agi} </span> </p>
+                                            <p className='tag'> Intillect <span> {this.state.stats.stats.int} </span> </p>
+                                            <p className='tag'> Stamina <span style={{color: 'turquoise'}}> {this.state.stats.stats.sta} </span> </p>
+                                            <h1 className='heading'> Enhancements </h1>
+                                                <p className='tag'> Haste <span> {this.state.stats.stats.haste.toFixed(2)}% </span> </p> 
+                                        </div>
+                                        <div className='compare'>
+                                            <h1 className='headingTwo'> Compare Stats </h1>
+
+                                        </div>
                                     </div>
                                     :
                                     null
