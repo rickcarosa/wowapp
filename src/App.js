@@ -4,11 +4,19 @@ import Home from './components/Home';
 import './App.css';
 
 class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+     
+    }
+  }
+
+
   render() {
     return (
       <div className="App">
         <Switch>
-          <Route exact path = '/' component = {Home}/>
+          <Route exact path = '/' component = {Home} />
         </Switch>
       </div>
     );
