@@ -8,6 +8,7 @@ class Home extends Component {
         super()
         this.state = {
             baseUrl: 'https://us.api.battle.net/wow',
+            pictureUrl: 'http://render-us.worldofwarcraft.com/character/',
             charInput: '',
             realmInput: '',
             stats: {},
@@ -52,7 +53,20 @@ class Home extends Component {
     }
 
     render(){
-        
+        //style for avatar
+        let style = {
+            background: `url(${this.state.pictureUrl}${this.state.stats.thumbnail})`,
+            width: '4rem',
+            height: '4rem',
+            backgroundPosition: 'center',
+            backgroundSize: '100%',
+            backgroundRepeat: 'no-repeat',
+            marginLeft: '5px',
+            position: 'relative',
+            borderRadius: '5%',
+            border: '1px solid rgba(255, 249, 6, 0.5)'
+        }
+
         return(
             <section className='Home'>
                 <img className='logo' src={logo} alt="logo"/>
@@ -61,7 +75,19 @@ class Home extends Component {
                     <input className='realm' placeholder='Realm Name' type="text" onChange = {(event) => this.addRealm(event.target.value)}/>
                     <button className='search' onClick={() => {this.getStats(); this.getItems()}}> Search </button>
                 </div>
+
+                {/* data for player div */}
                 <div className='infoBox'>
+
+                    {/* div and svgs for closing the info container */}
+                    <div className='closeBox'>
+                        <div className='hexagon'>
+                                <div className='x'>
+
+                                </div>
+                        </div>
+                    </div>
+
                     <div className='statsBox'>
                         <div className='info'>
 
@@ -80,7 +106,6 @@ class Home extends Component {
                                         <h1 className='heading'> Enhancements </h1>
                                             <p className='tag'> Haste <span> {this.state.stats.stats.haste.toFixed(2)}% </span> </p> 
                                     </div>
-                                    
                                     :
                                     null
                                 }
@@ -89,18 +114,53 @@ class Home extends Component {
 
                     <div className='itemBox'>
                         <div className='info'>
+
                                 {
                                     this.state.items.items
                                     ?
-                                    <div className='itemList'>
-                                        <h1 className='itemHeading'> My Item Sets </h1>
-                                        <p className='tagTwo'> Helm <span className='level'> <p className='listItem'> {this.state.items.items.head.name} </p> </span> {this.state.items.items.head.itemLevel} </p>                                    
-                                        <p className='tagTwo'> Chest <span className='level'> <p classname='listItem'> {this.state.items.items.chest.name} </p> </span> {this.state.items.items.chest.itemLevel} </p>                                    
-                                        <p className='tagTwo'> Shoulders <span className='level'> <p classname='listItem'> {this.state.items.items.shoulder.name} </p> </span> {this.state.items.items.shoulder.itemLevel} </p>
-                                        <p className='tagTwo'> Legs <span className='level'> <p classname='listItem'> {this.state.items.items.legs.name} </p> </span> {this.state.items.items.legs.itemLevel} </p>                                
-                                        <p className='tagTwo'> Feet <span className='level'> <p classname='listItem'> {this.state.items.items.feet.name} </p> </span> {this.state.items.items.feet.itemLevel} </p>                               
-                                        <p className='tagTwo'> Trinket <span className='level'> <p classname='listItem'> {this.state.items.items.trinket1.name} </p> </span> {this.state.items.items.trinket1.itemLevel} </p>
-                                        <p className='tagTwo'> Back <span className='level'> <p classname='listItem'> {this.state.items.items.back.name} </p> </span> {this.state.items.items.back.itemLevel} </p>                            
+                                    <div className='tableContainer'> 
+                                    <h1 className='itemHeading'> My Item Sets </h1>
+                                    {/* avatar imgage */}
+                                    <div className='picture' style={style}> <p className='pvp'> PvP </p> </div>
+                                    <table className='table'>
+                                        <tbody>
+                                            <tr>
+                                                <td> Helm </td>
+                                                <td> {this.state.items.items.head.name} </td>
+                                                <td> {this.state.items.items.head.itemLevel} </td>
+                                            </tr>
+                                            <tr>
+                                                <td> Chest </td>
+                                                <td> {this.state.items.items.chest.name} </td>
+                                                <td> {this.state.items.items.chest.itemLevel} </td>
+                                            </tr>
+                                            <tr>
+                                                <td> Shoulders </td>
+                                                <td> {this.state.items.items.shoulder.name} </td>
+                                                <td> {this.state.items.items.shoulder.itemLevel} </td>
+                                            </tr>
+                                            <tr>
+                                                <td> Legs </td>
+                                                <td> {this.state.items.items.legs.name} </td>
+                                                <td> {this.state.items.items.legs.itemLevel} </td>
+                                            </tr>
+                                            <tr>
+                                                <td> Feet </td>
+                                                <td> {this.state.items.items.feet.name} </td>
+                                                <td> {this.state.items.items.feet.itemLevel} </td>
+                                            </tr>
+                                            <tr>
+                                                <td> Trinket </td>
+                                                <td> {this.state.items.items.trinket1.name} </td>
+                                                <td> {this.state.items.items.trinket1.itemLevel} </td>
+                                            </tr>
+                                            <tr>
+                                                <td> Back </td>
+                                                <td> {this.state.items.items.back.name} </td>
+                                                <td> {this.state.items.items.back.itemLevel} </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                     </div>
                                     :
                                     null

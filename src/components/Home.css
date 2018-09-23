@@ -43,7 +43,7 @@ img{
 
 .infoBox{
     width: 100%;
-    height: 20rem;
+    height: 23rem;
     background-color: #111931;
     /* opacity: .8; */
     margin-top: 2rem;
@@ -55,11 +55,25 @@ img{
 }
 
 .statsBox {
-    background: #070735;
+    background: #19192f;
     margin: 2rem 1rem 2rem 5rem;
     border-radius: 2%;
     border: 1px solid rgba(147, 147, 150, 0.3);
 }
+
+.closeBox{
+    position: absolute;
+    width: 3rem;
+    height: 3rem;
+    right: 0;
+    margin: 7px;
+    border: 1px solid rgba(147, 147, 150, 0.3);
+    border-radius: 20%;
+}
+
+.hexagon {
+    
+}   
 
 .info {
     width: 100%;
@@ -80,23 +94,24 @@ img{
     max-width: 40%;
     min-width: 40%;
     margin-left: 3rem;
-    margin-top: -6px;
+    margin-top: -20px;
 }
 
 .attributes::after{
     content: '';
     background: linear-gradient(to bottom, transparent, gray);
     width: 1px;
-    height: 13rem;
+    height: 10rem;
     position: absolute;
     margin-left: 20rem;
+    margin-top: 3rem;
 }
 
 .tag {
     color: gold;
     display: flex;
     justify-content: space-between;
-    padding: 3px 0;
+    padding: 6px 0;
 }
 
 p > span {
@@ -107,31 +122,47 @@ span:nth-child(4){
     color: lightblue;
 }
 
-.itemHeading, .listItem, .tagTwo, .level{
-    color: gold
+.itemHeading {
+    color: gold;
+    padding-bottom: 10px;
+    padding-left: 5px;
 }
 
 .itemBox {
-    background: #070735;
+    background: #19192f;
     margin: 2rem 5rem 2rem 1rem;
     border-radius: 2%;
     border: 1px solid rgba(147, 147, 150, 0.3);
 }
 
-.itemList {
-    width: 100%;
-    height: 100%;
+.tableContainer{
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    color: gold;
+    text-align: left;
 }
 
-.tagTwo{
-    display: flex;
-    justify-content: space-between;
+.table{
+    border-collapse: separate;
+    border-spacing: 7px;
 }
 
-.listItem {
-    
+td:nth-child(1){
+    width: 6rem;
 }
 
-.level{
+td:nth-child(2){
+    width: 25rem;
+}
 
+td:nth-child(3){
+    text-align: right;
+    color: white;
+}
+
+.pvp {
+    position: absolute;
+    top: 3rem;
+    left: 19px;
 }
