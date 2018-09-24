@@ -58,12 +58,14 @@ class Home extends Component {
         })
     }
 
+    //add character when typed in input value
     addCharacter(value){
         this.setState({
             charInput: value
         })
     }
 
+    //add realm when typed in input value
     addRealm(value){
         this.setState({
             realmInput: value
@@ -243,7 +245,8 @@ class Home extends Component {
 
         return(
             <section className='Home'>
-                <img className='logo' src={logo} alt="logo"/>
+                {/* reload page when click on logo */}
+                <a href='/'> <img className='logo' src={logo} alt="logo"/> </a>
                 <div className='data'>
                     <input className='character' placeholder='Character Name' type="text" onChange = {(event) => this.addCharacter(event.target.value)}/>
                     <input className='realm' placeholder='Realm Name' type="text" onChange = {(event) => this.addRealm(event.target.value)}/>
@@ -284,6 +287,7 @@ class Home extends Component {
                                             <p className='tag'> Stamina <span style={{color: 'turquoise'}}> {this.state.stats.stats.sta} </span> </p>
                                             <h1 className='heading'> Enhancements </h1>
                                                 <p className='tag'> Haste <span> {this.state.stats.stats.haste.toFixed(2)}% </span> </p> 
+                                                <p className='tag'> Crit <span> {this.state.stats.stats.crit.toFixed(2)}% </span> </p> 
                                         </div>
                                             <h1 className='headingTwo'> Compare Stats </h1>
                                         <div className='compare'>
