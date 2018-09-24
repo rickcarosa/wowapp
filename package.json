@@ -1,7 +1,7 @@
 {
   "name": "wowapp",
   "main": "server/index.js",
-  "proxy": "http://localhost:3009",
+  "proxy": "http://localhost:3007",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
