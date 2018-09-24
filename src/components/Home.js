@@ -58,14 +58,14 @@ class Home extends Component {
         })
     }
 
-    //add character when typed in input value
+    //add character when typed in input value, i used bob
     addCharacter(value){
         this.setState({
             charInput: value
         })
     }
 
-    //add realm when typed in input value
+    //add realm when typed in input value, i used arygos
     addRealm(value){
         this.setState({
             realmInput: value
@@ -180,21 +180,26 @@ class Home extends Component {
     }
 
     render(){
+
+         // destructering to keep code a little shorter where possible
+         const {stats} = this.state
+         const {items} = this.state
+
         //style for avatar that is searched for
         let style = {
             background: `url(${this.state.pictureUrl}${this.state.stats.thumbnail})`,
             width: '4rem',
             height: '4rem',
-            backgroundPosition: 'center',
-            backgroundSize: '100%',
-            backgroundRepeat: 'no-repeat',
             marginLeft: '5px',
             position: 'relative',
             borderRadius: '5%',
-            border: '1px solid rgba(255, 249, 6, 0.5)'
+            border: '1px solid rgba(255, 249, 6, 0.5)',
+            backgroundPosition: 'center',
+            backgroundSize: '100%',
+            backgroundRepeat: 'no-repeat',
         }
 
-        //styles for 6 comarable avatars...since it's hardcoded it needs to be 6 individual styles :(
+        //styles for 6 comarable avatars...since it's hardcoded it needs to be 6 individual styles :( I didn't see anything from the api that pulled a list of characters in the game
         let styleOne = {
             background: `url(${this.state.pictureUrl}${this.state.tom.thumbnail})`,
             width: '4rem',
@@ -275,7 +280,7 @@ class Home extends Component {
 
         return(
             <section className='Home'>
-                {/* reload page when click on logo */}
+                {/* reload page when logo is clicked */}
                 <a href='/'> <img className='logo' src={logo} alt="logo"/> </a>
                 <div className='data'>
                     <input className='character' placeholder='Character Name' type="text" onChange = {(event) => this.addCharacter(event.target.value)}/>
@@ -304,20 +309,20 @@ class Home extends Component {
 
                                 {/* check to see if value is true and retrun data from object */}
                                 {
-                                    this.state.stats.stats 
+                                    stats.stats 
                                     ?
                                     <div className='dataContainer'>
                                         <div className='attributes'>
                                             <h1 className='heading'> Attributes </h1>
-                                            <p className='tag'> Level <span> {this.state.stats.level} </span> </p>
-                                            <p className='tag'> Health <span> {this.state.stats.stats.health} </span> </p>
-                                            <p className='tag'> Strength <span> {this.state.stats.stats.str} </span> </p>
-                                            <p className='tag'> Agility <span style={{color: 'turquoise'}}> {this.state.stats.stats.agi} </span> </p>
-                                            <p className='tag'> Intillect <span> {this.state.stats.stats.int} </span> </p>
-                                            <p className='tag'> Stamina <span style={{color: 'turquoise'}}> {this.state.stats.stats.sta} </span> </p>
+                                            <p className='tag'> Level <span> {stats.level} </span> </p>
+                                            <p className='tag'> Health <span> {stats.stats.health} </span> </p>
+                                            <p className='tag'> Strength <span> {stats.stats.str} </span> </p>
+                                            <p className='tag'> Agility <span style={{color: 'turquoise'}}> {stats.stats.agi} </span> </p>
+                                            <p className='tag'> Intillect <span> {stats.stats.int} </span> </p>
+                                            <p className='tag'> Stamina <span style={{color: 'turquoise'}}> {stats.stats.sta} </span> </p>
                                             <h1 className='heading'> Enhancements </h1>
-                                                <p className='tag'> Haste <span> {this.state.stats.stats.haste.toFixed(2)}% </span> </p> 
-                                                <p className='tag'> Crit <span> {this.state.stats.stats.crit.toFixed(2)}% </span> </p> 
+                                                <p className='tag'> Haste <span> {stats.stats.haste.toFixed(2)}% </span> </p> 
+                                                <p className='tag'> Crit <span> {stats.stats.crit.toFixed(2)}% </span> </p> 
                                         </div>
                                             <h1 className='headingTwo'> Compare Stats </h1>
                                         <div className='compare'>
@@ -334,12 +339,13 @@ class Home extends Component {
                                 }
                         </div>
                     </div>
-
+                    
+                    {/* get items listed and level needed for that item */}
                     <div className='itemBox'>
                         <div className='info'>
 
                                 {
-                                    this.state.items.items
+                                    items.items
                                     ?
                                     <div className='tableContainer'> 
                                     <h1 className='itemHeading'> My Item Sets </h1>
@@ -349,38 +355,38 @@ class Home extends Component {
                                         <tbody>
                                             <tr>
                                                 <td> Helm </td>
-                                                <td> {this.state.items.items.head.name} </td>
-                                                <td> {this.state.items.items.head.itemLevel} </td>
+                                                <td> {items.items.head.name} </td>
+                                                <td> {items.items.head.itemLevel} </td>
                                             </tr>
                                             <tr>
                                                 <td> Chest </td>
-                                                <td> {this.state.items.items.chest.name} </td>
-                                                <td> {this.state.items.items.chest.itemLevel} </td>
+                                                <td> {items.items.chest.name} </td>
+                                                <td> {items.items.chest.itemLevel} </td>
                                             </tr>
                                             <tr>
                                                 <td> Shoulders </td>
-                                                <td> {this.state.items.items.shoulder.name} </td>
-                                                <td> {this.state.items.items.shoulder.itemLevel} </td>
+                                                <td> {items.items.shoulder.name} </td>
+                                                <td> {items.items.shoulder.itemLevel} </td>
                                             </tr>
                                             <tr>
                                                 <td> Legs </td>
-                                                <td> {this.state.items.items.legs.name} </td>
-                                                <td> {this.state.items.items.legs.itemLevel} </td>
+                                                <td> {items.items.legs.name} </td>
+                                                <td> {items.items.legs.itemLevel} </td>
                                             </tr>
                                             <tr>
                                                 <td> Feet </td>
-                                                <td> {this.state.items.items.feet.name} </td>
-                                                <td> {this.state.items.items.feet.itemLevel} </td>
+                                                <td> {items.items.feet.name} </td>
+                                                <td> {items.items.feet.itemLevel} </td>
                                             </tr>
                                             <tr>
                                                 <td> Trinket </td>
-                                                <td> {this.state.items.items.trinket1.name} </td>
-                                                <td> {this.state.items.items.trinket1.itemLevel} </td>
+                                                <td> {items.items.trinket1.name} </td>
+                                                <td> {items.items.trinket1.itemLevel} </td>
                                             </tr>
                                             <tr>
                                                 <td> Back </td>
-                                                <td> {this.state.items.items.back.name} </td>
-                                                <td> {this.state.items.items.back.itemLevel} </td>
+                                                <td> {items.items.back.name} </td>
+                                                <td> {items.items.back.itemLevel} </td>
                                             </tr>
                                         </tbody>
                                     </table>
