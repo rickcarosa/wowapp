@@ -103,6 +103,11 @@ class Home extends Component {
     //methods for 6 hardcoded characters to compare to get stats, when picture is clicked it will pull stats
     getTom(){
         axios.get(`${this.state.baseUrl}/character/arygos/tom?fields=stats&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+            axios.get(`${this.state.baseUrl}/character/arygos/tom?fields=items&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+                this.setState({
+                    items: res.data
+                })
+            })
             this.setState({
                 stats: res.data
             })
@@ -111,6 +116,11 @@ class Home extends Component {
 
     getJohn(){
         axios.get(`${this.state.baseUrl}/character/arygos/john?fields=stats&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+            axios.get(`${this.state.baseUrl}/character/arygos/john?fields=items&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+                this.setState({
+                    items: res.data
+                })
+            })
             this.setState({
                 stats: res.data
             })
@@ -119,6 +129,11 @@ class Home extends Component {
 
     getMark(){
         axios.get(`${this.state.baseUrl}/character/arygos/mark?fields=stats&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+            axios.get(`${this.state.baseUrl}/character/arygos/mark?fields=items&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+                this.setState({
+                    items: res.data
+                })
+            })
             this.setState({
                 stats: res.data
             })
@@ -127,6 +142,11 @@ class Home extends Component {
 
     getAlex(){
         axios.get(`${this.state.baseUrl}/character/arygos/alex?fields=stats&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+            axios.get(`${this.state.baseUrl}/character/arygos/alex?fields=items&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+                this.setState({
+                    items: res.data
+                })
+            })
             this.setState({
                 stats: res.data
             })
@@ -135,6 +155,11 @@ class Home extends Component {
 
     getNick(){
         axios.get(`${this.state.baseUrl}/character/arygos/nick?fields=stats&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+            axios.get(`${this.state.baseUrl}/character/arygos/nick?fields=items&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+                this.setState({
+                    items: res.data
+                })
+            })
             this.setState({
                 stats: res.data
             })
@@ -143,6 +168,11 @@ class Home extends Component {
 
     getMike(){
         axios.get(`${this.state.baseUrl}/character/arygos/mike?fields=stats&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+            axios.get(`${this.state.baseUrl}/character/arygos/mike?fields=items&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+                this.setState({
+                    items: res.data
+                })
+            })
             this.setState({
                 stats: res.data
             })
