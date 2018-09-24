@@ -14,4 +14,4 @@ const {
 
 app.use(express.static(`${__dirname}/../build`))
 
-app.listen(SERVER_PORT, () => console.log(`World of Warcraft`)) 
+app.listen(SERVER_PORT, () => console.log(`LEROY JENKINS!`)) 
