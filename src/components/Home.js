@@ -181,7 +181,7 @@ class Home extends Component {
 
     render(){
 
-         // destructering to keep code a little shorter where possible
+         // destructuring to keep code a little shorter where possible
          const {stats} = this.state
          const {items} = this.state
 
