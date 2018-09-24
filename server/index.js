@@ -12,6 +12,6 @@ const {
     SERVER_PORT
 } = process.env
 
-// app.get('/api/stats', controller.read)
+
 
 app.listen(SERVER_PORT, () => console.log(`World of Warcraft`)) 

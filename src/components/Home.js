@@ -14,11 +14,48 @@ class Home extends Component {
             realmInput: '',
             stats: {},
             items: {},
-            dataDiv: false
+            dataDiv: false,
+            tom: {},
+            john: {},
+            mark: {},
+            alex: {},
+            nick: {},
+            mike: {}
         }
+    }
 
-        this.addCharacter = this.addCharacter.bind(this);
-        this.addRealm = this.addRealm.bind(this);
+    // on page load, avatars are loaded for 6 comparable players
+    componentDidMount(){
+        axios.get(`${this.state.baseUrl}/character/arygos/tom?fields=stats&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+            axios.get(`${this.state.baseUrl}/character/arygos/john?fields=stats&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+                axios.get(`${this.state.baseUrl}/character/arygos/mark?fields=stats&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+                    axios.get(`${this.state.baseUrl}/character/arygos/alex?fields=stats&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+                        axios.get(`${this.state.baseUrl}/character/arygos/nick?fields=stats&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+                            axios.get(`${this.state.baseUrl}/character/arygos/mike?fields=stats&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+                                this.setState({
+                                    mike: res.data
+                                })
+                            })
+                            this.setState({
+                                nick: res.data
+                            })
+                        })
+                        this.setState({
+                            alex: res.data
+                        })
+                    })
+                    this.setState({
+                        mark: res.data
+                    })
+                })
+                this.setState({
+                    john: res.data
+                })
+            })
+            this.setState({
+                tom: res.data
+            })
+        })
     }
 
     addCharacter(value){
@@ -39,8 +76,8 @@ class Home extends Component {
             this.setState({
                 stats: res.data
             })
-            console.log(this.state.stats)
-            console.log(this.state.stats.level)
+            // console.log(this.state.stats)
+            // console.log(this.state.stats.level)
         })
     }
 
@@ -50,18 +87,68 @@ class Home extends Component {
             this.setState({
                 items: res.data
             })
-            console.log(this.state.items)
+            // console.log(this.state.items)
         })
     }
 
+    //conditional rendering the info and stats div
     closeDiv(){
         this.setState({
             dataDiv: !this.state.dataDiv
         })
     }
 
+    //methods for 6 hardcoded characters to compare to get stats, when picture is clicked it will pull stats
+    getTom(){
+        axios.get(`${this.state.baseUrl}/character/arygos/tom?fields=stats&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+            this.setState({
+                stats: res.data
+            })
+        })
+    }
+
+    getJohn(){
+        axios.get(`${this.state.baseUrl}/character/arygos/john?fields=stats&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+            this.setState({
+                stats: res.data
+            })
+        })
+    }
+
+    getMark(){
+        axios.get(`${this.state.baseUrl}/character/arygos/mark?fields=stats&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+            this.setState({
+                stats: res.data
+            })
+        })
+    }
+
+    getAlex(){
+        axios.get(`${this.state.baseUrl}/character/arygos/alex?fields=stats&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+            this.setState({
+                stats: res.data
+            })
+        })
+    }
+
+    getNick(){
+        axios.get(`${this.state.baseUrl}/character/arygos/nick?fields=stats&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+            this.setState({
+                stats: res.data
+            })
+        })
+    }
+
+    getMike(){
+        axios.get(`${this.state.baseUrl}/character/arygos/mike?fields=stats&locale=en_US&apikey=${process.env.REACT_APP_API_KEY}`).then( res => {
+            this.setState({
+                stats: res.data
+            })
+        })
+    }
+
     render(){
-        //style for avatar
+        //style for avatar that is searched for
         let style = {
             background: `url(${this.state.pictureUrl}${this.state.stats.thumbnail})`,
             width: '4rem',
@@ -73,6 +160,85 @@ class Home extends Component {
             position: 'relative',
             borderRadius: '5%',
             border: '1px solid rgba(255, 249, 6, 0.5)'
+        }
+
+        //styles for 6 comarable avatars...since it's hardcoded it needs to be 6 individual styles :(
+        let styleOne = {
+            background: `url(${this.state.pictureUrl}${this.state.tom.thumbnail})`,
+            width: '4rem',
+            height: '4rem',
+            backgroundPosition: 'center',
+            backgroundSize: '100%',
+            backgroundRepeat: 'no-repeat',
+            marginLeft: '5px',
+            position: 'relative',
+            borderRadius: '5%',
+            cursor: 'pointer'
+        }
+
+        let styleTwo = {
+            background: `url(${this.state.pictureUrl}${this.state.john.thumbnail})`,
+            width: '4rem',
+            height: '4rem',
+            backgroundPosition: 'center',
+            backgroundSize: '100%',
+            backgroundRepeat: 'no-repeat',
+            marginLeft: '5px',
+            position: 'relative',
+            borderRadius: '5%',
+            cursor: 'pointer'
+        }
+
+        let styleThree = {
+            background: `url(${this.state.pictureUrl}${this.state.mark.thumbnail})`,
+            width: '4rem',
+            height: '4rem',
+            backgroundPosition: 'center',
+            backgroundSize: '100%',
+            backgroundRepeat: 'no-repeat',
+            marginLeft: '5px',
+            position: 'relative',
+            borderRadius: '5%',
+            cursor: 'pointer'
+        }
+
+        let styleFour = {
+            background: `url(${this.state.pictureUrl}${this.state.alex.thumbnail})`,
+            width: '4rem',
+            height: '4rem',
+            backgroundPosition: 'center',
+            backgroundSize: '100%',
+            backgroundRepeat: 'no-repeat',
+            marginLeft: '5px',
+            position: 'relative',
+            borderRadius: '5%',
+            cursor: 'pointer'
+        }
+
+        let styleFive = {
+            background: `url(${this.state.pictureUrl}${this.state.nick.thumbnail})`,
+            width: '4rem',
+            height: '4rem',
+            backgroundPosition: 'center',
+            backgroundSize: '100%',
+            backgroundRepeat: 'no-repeat',
+            marginLeft: '5px',
+            position: 'relative',
+            borderRadius: '5%',
+            cursor: 'pointer'
+        }
+
+        let styleSix = {
+            background: `url(${this.state.pictureUrl}${this.state.mike.thumbnail})`,
+            width: '4rem',
+            height: '4rem',
+            backgroundPosition: 'center',
+            backgroundSize: '100%',
+            backgroundRepeat: 'no-repeat',
+            marginLeft: '5px',
+            position: 'relative',
+            borderRadius: '5%',
+            cursor: 'pointer'
         }
 
         return(
@@ -119,9 +285,14 @@ class Home extends Component {
                                             <h1 className='heading'> Enhancements </h1>
                                                 <p className='tag'> Haste <span> {this.state.stats.stats.haste.toFixed(2)}% </span> </p> 
                                         </div>
-                                        <div className='compare'>
                                             <h1 className='headingTwo'> Compare Stats </h1>
-
+                                        <div className='compare'>
+                                                <div className='picture' style={styleOne} onClick={() => this.getTom()}> </div>
+                                                <div className='picture' style={styleTwo} onClick={() => this.getJohn()}> </div>
+                                                <div className='picture' style={styleThree} onClick={() => this.getMark()}> </div>
+                                                <div className='picture' style={styleFour} onClick={() => this.getAlex()}> </div>
+                                                <div className='picture' style={styleFive} onClick={() => this.getNick()}> </div>
+                                                <div className='picture' style={styleSix} onClick={() => this.getMike()}> </div>
                                         </div>
                                     </div>
                                     :
@@ -139,7 +310,7 @@ class Home extends Component {
                                     <div className='tableContainer'> 
                                     <h1 className='itemHeading'> My Item Sets </h1>
                                     {/* avatar imgage */}
-                                    <div className='picture' style={style}> <p className='pvp'> PvP </p> </div>
+                                    <div style={style}> <p className='pvp'> PvP </p> </div>
                                     <table className='table'>
                                         <tbody>
                                             <tr>
